@@ -35,4 +35,5 @@ TODO: Add long description of the pod here.
   # s.dependency 'TensorFlowLiteSwift', '2.5.0'
   # s.dependency 'TensorFlowLiteSelectTfOps', '2.5.0'
 #  s.dependency 'TensorFlowLiteSwift/CoreML', '2.5.0'
+  s.dependency 'Alamofire', '5.9.0'
 end
