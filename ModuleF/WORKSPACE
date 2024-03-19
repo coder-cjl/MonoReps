@@ -1,0 +1,61 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "build_bazel_rules_apple",
+    sha256 = "34c41bfb59cdaea29ac2df5a2fa79e5add609c71bb303b2ebb10985f93fa20e7",
+    url = "https://github.com/bazelbuild/rules_apple/releases/download/3.1.1/rules_apple.3.1.1.tar.gz",
+)
+
+load(
+    "@build_bazel_rules_apple//apple:repositories.bzl",
+    "apple_rules_dependencies",
+)
+
+apple_rules_dependencies()
+
+load(
+    "@build_bazel_rules_swift//swift:repositories.bzl",
+    "swift_rules_dependencies",
+)
+
+swift_rules_dependencies()
+
+load(
+    "@build_bazel_rules_swift//swift:extras.bzl",
+    "swift_rules_extra_dependencies",
+)
+
+swift_rules_extra_dependencies()
+
+load(
+    "@build_bazel_apple_support//lib:repositories.bzl",
+    "apple_support_dependencies",
+)
+
+apple_support_dependencies()
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+git_repository(
+    name = "MonoReps",
+    remote = "https://github.com/coder-cjl/MonoReps.git",
+    branch = "main",
+)
+
+# # 下载 CocoaPods 的 podspec 文件
+# load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+# http_archive(
+#     name = "cocoapods_specs",
+#     urls = [
+#         "https://github.com/CocoaPods/Specs/archive/master.tar.gz",
+#     ],
+#     strip_prefix = "Specs-master",
+# )
+
+# # 加载 CocoaPods 规则
+# load("@cocoapods//:workspace.bzl", "cocoapods_install")
+
+# # 将 CocoaPods 依赖引入到 WORKSPACE 中
+# cocoapods_install(
+#     name = "cocoapods",
+#     podspec = "@cocoapods_specs//:podspecs.json",
+# )
