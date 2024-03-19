@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+// import Alamofire
 
 public class Home {
     public static func eat() {
