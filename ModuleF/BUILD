@@ -4,5 +4,8 @@ swift_library(
     name = "ModuleF",
     module_name = "ModuleF",
     srcs = glob(["*.swift"]),
+    deps = [
+        "@CocoaPods://Alamofire",
+    ],
     visibility = ["//visibility:public"],
 )
